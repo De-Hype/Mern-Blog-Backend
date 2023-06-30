@@ -20,9 +20,7 @@ mongoose.connect(
         } catch (err) {
             throw err;
         }
-    }); 
-
-connect()
+    });
 
 
 
