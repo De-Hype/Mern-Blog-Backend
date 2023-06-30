@@ -9,15 +9,18 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-//MongoDb Database Connection
-async function connect(){
-    try {
-        await mongoose.connect('mongodb+srv://Blog:3jkzs43KSTGqefRP@cluster0.1wmzudx.mongodb.net/?retryWrites=true&w=majority')
-        console.log('Connected To Database')
-    } catch (error) {
-        console.error(error)
-    }
-}
+//MongoDb Database Connection 
+
+mongoose.connect(
+    'mongodb+srv://Blog:3jkzs43KSTGqefRP@cluster0.1wmzudx.mongodb.net/?retryWrites=true&w=majority',
+    { useNewUrlParser: true, useUnifiedTopology: true },
+    function (err, res) {
+        try {
+            console.log('Connected to Database');
+        } catch (err) {
+            throw err;
+        }
+    }); 
 
 connect()
 
