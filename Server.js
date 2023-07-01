@@ -12,7 +12,7 @@ app.use(express.json())
 //MongoDb Database Connection 
 async function connect(){
     try {
-        await mongoose.connect('process.env.DB_URI')
+        await mongoose.connect(process.env.DB_URI)
         console.log('Connected To Database')
     } catch (error) {
         console.error(error)
