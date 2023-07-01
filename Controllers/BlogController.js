@@ -95,22 +95,6 @@ exports.deletePost = async (req, res) =>{
   return res.status(200).json({ message: "Successfully Delete" });
 
 
-    // try {
-    //     const {postId} = req.params
-    //     const deletedBlog = await BlogModel.findByIdAndDelete(postId)
-    //     // populate("user")
-    //     // const deletedPost = await UserModel.Blog.pull(postId)
-    //     // await deletedBlog.pull()
-    //     await deletedBlog.save()
-    //       res.json({message:'Post Succesfully Deleted'})
-    //     // AndRemove(postId).populate("user")
-    //     // await deletedBlog.user.Blog.pull(deletedBlog)
-    //     // await deletedBlog.user.save()
-    //     // await deletedBlog.save()
-    // } catch (error) {
-    //     console.log('Unsuccesful')
-    //     console.error(error)
-    // }
 }
 
 //Get A Particular Post
@@ -130,7 +114,7 @@ exports.getSinglePost = async (req, res) => {
 //FOR GETTING ALL BLOG POST
 exports.getAllPost = async (req, res) =>{
     try {
-        const allPost =await BlogModel.find().populate('user')
+        const allPost =await BlogModel.find().populate("user")
         // .populate('user')
         if(!allPost){
             res.json({message:"No Posts Found"})
